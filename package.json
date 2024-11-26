@@ -1,5 +1,5 @@
 {
-  "name": "my-ip",
+  "name": "My-IP",
   "version": "1.0.0",
   "author": "Tatami <tatamiweb@proton.me>",
   "description": "This program helps you interact with your IP information...",
@@ -34,16 +34,30 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "/assets/icon.png"
+        "icon": "assets/icon.png" 
       },
       "makers": [
         {
           "name": "@electron-forge/maker-deb",
-          "config": {}
+          "config": {
+            "options": {
+              "maintainer": "Tatami <tatamiweb@proton.me>",
+              "homepage": "https://example.com",
+              "icon": "assets/icon.png",
+              "category": "Utility;Network"
+            }
+          }
         },
         {
           "name": "@electron-forge/maker-rpm",
-          "config": {}
+          "config": {
+            "options": {
+              "maintainer": "Tatami <tatamiweb@proton.me>",
+              "homepage": "https://example.com",
+              "icon": "assets/icon.png",
+              "category": "Utility;Network"
+            }
+          }
         },
         {
           "name": "@electron-forge/maker-zip",
@@ -52,6 +66,18 @@
           ]
         }
       ]
+    }
+  },
+  "build": {
+    "appId": "com.myip.app",
+    "linux": {
+      "target": [
+        "deb",
+        "rpm",
+        "zip"
+      ],
+      "icon": "assets/icon.png",
+      "category": "Utility;Network"
     }
   }
 }
