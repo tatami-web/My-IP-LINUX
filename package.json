@@ -1,21 +1,57 @@
 {
   "name": "my-ip",
   "version": "1.0.0",
-  "description": "",
+  "author": "Tatami <tatamiweb@proton.me>",
+  "description": "This program helps you interact with your IP information...",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "keywords": [],
-  "author": "Tatami",
-  "license": "Apache License 2.0",
+  "license": "Apache-2.0",
   "dependencies": {
     "@capacitor/cli": "^6.2.0",
     "@capacitor/core": "^6.2.0",
-    "@capacitor/electron": "^2.5.0"
+    "@capacitor/electron": "^2.5.0",
+    "@capacitor/splash-screen": "^6.0.3",
+    "electron-squirrel-startup": "^1.0.1"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^7.5.0",
+    "@electron-forge/maker-deb": "^7.5.0",
+    "@electron-forge/maker-rpm": "^7.5.0",
+    "@electron-forge/maker-squirrel": "^7.5.0",
+    "@electron-forge/maker-zip": "^7.5.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.5.0",
+    "@electron-forge/plugin-fuses": "^7.5.0",
+    "@electron/fuses": "^1.8.0",
     "electron": "^33.2.0",
     "electron-packager": "^17.1.2"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "/assets/icon.png"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "linux"
+          ]
+        }
+      ]
+    }
   }
 }

@@ -116,7 +116,6 @@ button:hover {
   left: 50%; /* Centra horizontalmente */
   transform: translateX(-50%); /* Ajusta el botón para que esté centrado */
   z-index: 1000;
-  z-index: 1; /* O un valor mayor que el del footer */
 }
 
 #toggle-info:hover {

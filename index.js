@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const path = require('path');
 const os = require('os');
 
@@ -22,13 +22,15 @@ function getLocalIP() {
 function createMainWindow() {
   mainWindow = new BrowserWindow({
     width: 350, // Ancho inicial
-    height: 600, // Altura inicial
+    height: 650, // Altura inicial
     resizable: false, // Evita redimensionar con el mouse
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'), // Precarga
       contextIsolation: true, // Aislamiento de contexto
       nodeIntegration: false, // Sin integración de Node.js
     },
+    icon: path.join(__dirname, 'assets/icon.png'), // Cambia 'icon.png' por tu archivo
+    show: false, // No mostrar la ventana al crearla
   });
 
   // Ocultar la barra superior (Archivo, Editar, Ver, etc.)
@@ -38,9 +40,21 @@ function createMainWindow() {
   // Cargar el archivo HTML principal
   mainWindow.loadFile(path.join(__dirname, 'www/index.html'));
 
+  // Mostrar la ventana cuando esté cargada
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show();
+  });
+
   // Manejo de eventos cuando la ventana es cerrada
   mainWindow.on('closed', () => {
     mainWindow = null;
+  });
+
+  // Interceptar intentos de abrir nuevas ventanas (target="_blank")
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    // Abrir el enlace en el navegador predeterminado
+    shell.openExternal(url);
+    return { action: 'deny' }; // Evita que Electron abra una nueva ventana
   });
 }
 

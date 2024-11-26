@@ -1,0 +1,31 @@
+name: my-ip
+base: core22
+version: 1.0.0
+summary: ""This program helps you interact with your IP information..." # Resumen breve
+description: |
+  My IP is a lightweight Linux program designed to quickly display your current IP address and its associated country flag. It is ideal for users who want real-time information about their internet connection, whether they are using wired connections, Wi-Fi, VPNs, or proxies. 
+
+grade: stable 
+confinement: strict
+
+apps:
+  my-ip:
+    command: snap/command-chain/desktop-launch $SNAP/my-ip
+    extensions: [gnome-3-38]
+    plugs:
+      - network
+
+parts:
+  my-ip:
+    source: my-ip
+    plugin: dump
+    stage-packages:
+      - libnss3
+      - libx11-6
+    build-attributes: [no-patchelf]
+
+  desktop-gtk3:
+    plugin: nil
+    stage-snaps:
+      - gtk-common-themes
+      - gnome-3-38-2004
