@@ -10,7 +10,7 @@ confinement: strict
 
 apps:
   my-ip:
-    command: snap/command-chain/desktop-launch $SNAP/my-ip
+    command: my-ip
     extensions: [gnome-3-38]
     plugs:
       - network

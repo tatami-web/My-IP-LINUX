@@ -1,5 +1,5 @@
 {
-  "name": "My-IP",
+  "name": "my-ip",
   "version": "1.0.0",
   "author": "Tatami <tatamiweb@proton.me>",
   "description": "This program helps you interact with your IP information...",
@@ -44,7 +44,7 @@
               "maintainer": "Tatami <tatamiweb@proton.me>",
               "homepage": "https://example.com",
               "icon": "assets/icon.png",
-              "category": "Utility;Network"
+              "category": "Utility"
             }
           }
         },
@@ -55,7 +55,7 @@
               "maintainer": "Tatami <tatamiweb@proton.me>",
               "homepage": "https://example.com",
               "icon": "assets/icon.png",
-              "category": "Utility;Network"
+              "category": "Utility"
             }
           }
         },
@@ -77,7 +77,7 @@
         "zip"
       ],
       "icon": "assets/icon.png",
-      "category": "Utility;Network"
+      "category": "Utility"
     }
   }
 }
