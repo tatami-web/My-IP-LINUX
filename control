@@ -1,7 +1,0 @@
-Package: My IP
-Version: 1.0
-Section: utils
-Priority: IP
-Architecture: amd64
-Maintainer: Tatami <tatamiweb@proton.me>
-Description: This program helps you interact with your IP information...
